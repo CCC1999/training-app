@@ -1,0 +1,197 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.uek.project</groupId>
+	<artifactId>temp-app</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+
+	<!-- 不配置failOnMissingWebXml属性的话，打包方式为war的话将报错 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 若有web.xml则可以改为true，否则改为false -->
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<!-- Spring5 -->
+		<spring.version>5.1.7.RELEASE</spring.version>
+	</properties>
+	
+	<!-- 平台依赖仓库配置 -->
+	<repositories>
+		<repository>
+			<id>aliyun</id>
+			<name>Aliyun</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	
+	<!-- Web项目所依赖的jar，类库 -->
+	<dependencies>
+		<!-- 1.引入spring框架开始-->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- JSP JSTL标签库，若使用JSP则需要引入 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- 引入Spring框架 -->
+		<!-- Spring5 IOC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring5 AOP  -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.10</version>
+		</dependency>
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring5 与 JUnit框架整合 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.7.26</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.7.26</version>
+		</dependency>
+		
+		<!-- Spring5 与 Jdbc整合  -->
+		<!-- 整合JDBC需要用到的jar，当然再整合MyBatis框架也需要用到此处用到的jar -->
+		<!-- MySQL数据库驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.47</version>
+		</dependency>
+		<!-- Druid连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.18</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- 2.引入SpringMVC框架开始 -->
+		<!-- Spring5 与 SpringMVC集成 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- 2.引入SpringMVC框架结束-->
+		
+		<!-- 4.Spring5与 MyBatis集成 -->
+		<dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+		<!-- MyBatis PageHelper分页插件 -->
+		<dependency>
+		    <groupId>com.github.pagehelper</groupId>
+		    <artifactId>pagehelper</artifactId>
+		    <version>5.1.10</version>
+		</dependency>
+		
+		<!-- 5.处理JSON工具类，方便处理JSON字符串 -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.2.58</version>
+		</dependency>
+		<!-- 1.引入spring框架结束-->
+	</dependencies>
+
+	<!-- 3.配置项目中所用的插件 -->
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+			<!-- 编译插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<!-- 配置Tomcat7插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<!-- 配置服务器启动所占的端口号 大于3000-->
+					<port>8080</port>
+					<!-- 应用的名称 -->
+					<path>/training-app</path>
+					<uriEncoding>UTF-8</uriEncoding>
+					<!-- 实现热部署，不需要每次修改代码后都重新启动Tomcat -->
+					<contextReloadable>true</contextReloadable>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

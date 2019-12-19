@@ -1,0 +1,18 @@
+# eclipse
+.settings
+.project
+.classpath
+.mymetadata
+.metadata
+.DS_Store
+
+# java
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# maven
+target/
