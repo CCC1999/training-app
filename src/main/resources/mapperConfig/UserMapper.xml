@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- namespace:值是接口的全类名 -->
+<mapper namespace="mapper.UserMapper">
+	<!-- 根据用户名和密码查找用户  --> 
+	<select id="findByNameAndPassword" resultType="AuthUser">
+		select * from nuc_train_auth_user where username=#{username} and password=#{password}
+	</select>
+	<select id="findAll" resultType="AuthUser">
+		select * from nuc_train_auth_user
+	</select>
+	<!-- 保存用户 -->
+	<insert id="save" parameterType="AuthUser">
+		insert into nuc_train_auth_user(username,password,role_id,status)
+					values(#{username},#{password},#{roleId},#{status})
+	</insert>
+	<resultMap type="AuthUser" id="1">
+		<id column="id" property="id"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<result column="role_id" property="roleId"/>
+		<result column="status" property="status"/>
+		<association property="role" javaType="AuthRole">
+			<id column="role_id" property="id"/>
+			<result column="name" property="name"/>
+			<result column="description" property="description"/>
+		</association>
+	</resultMap>
+	<select id="findUserAndRole" resultMap="1">
+		select 
+		nuc_train_auth_user.*,
+		nuc_train_auth_role.name,
+		nuc_train_auth_role.description
+		from 
+		nuc_train_auth_user,
+		nuc_train_auth_role
+		where
+		nuc_train_auth_user.role_id=nuc_train_auth_role.id and nuc_train_auth_user.id=1
+	</select>
+</mapper> 
