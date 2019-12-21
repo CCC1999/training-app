@@ -24,7 +24,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-        resolver.setPrefix("/WEB-INF/");
+        resolver.setPrefix("/jsp/");
         resolver.setSuffix(".jsp");
         resolver.setViewClass(JstlView.class);
         return resolver;

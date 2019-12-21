@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import entity.User;
 
 /**
@@ -20,5 +22,7 @@ public interface IUserService {
 	 * 注册用户
 	 * @param user
 	 */
-	void registerUser(User user);
+	int registerUser(User user);
+	
+	List<User> findAll();
 }

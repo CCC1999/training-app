@@ -2,7 +2,15 @@ package entity;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+
 import org.apache.ibatis.type.Alias;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
+
+
 
 /**
  * 权限模块-用户实体类
@@ -15,9 +23,13 @@ public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	//--成员变量
 	private int id;
+	@Length(min=2,message="用户名长度不少于2位")
 	private String username;
+	@Length(min=6,message="密码长度不少于6位")
 	private String password;
+	@Range(min=1,max=4,message="角色ID在1~4之间")
 	private int roleId;
+	@Range(min=1,max=4,message="用户状态在1~4之间")
 	private int status;	
 	private Role role;
 	

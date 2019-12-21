@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,10 +26,15 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public void registerUser(User user) {
-		// TODO Auto-generated method stub
-		userMapper.save(user);
-		System.out.println(user);
+	public int registerUser(User user) {
+		return userMapper.save(user);
 	}
+
+	@Override
+	public List<User> findAll() {
+		return userMapper.findAll();
+	}
+	
+	
 	
 }

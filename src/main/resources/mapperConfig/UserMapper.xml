@@ -37,4 +37,5 @@
 		where
 		nuc_train_auth_user.role_id=nuc_train_auth_role.id and nuc_train_auth_user.id=1
 	</select>
+
 </mapper> 

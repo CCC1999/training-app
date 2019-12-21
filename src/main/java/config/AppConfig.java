@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @ComponentScan({"dao","service","controller"})
-@Import({JdbcConfig.class,WebConfig.class})
+@Import({JdbcConfig.class,WebConfig.class,TestConfig.class})
 public class AppConfig {
 	
 }

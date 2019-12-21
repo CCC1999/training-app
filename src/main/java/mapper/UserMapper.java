@@ -19,7 +19,7 @@ public interface UserMapper {
 	List<User> findAll();
 	void updateUser(User user);
 	void deleteUser(int id);
-	void save(User user);
+	int save(User user);
 	
 	User findUserAndRole();
 	

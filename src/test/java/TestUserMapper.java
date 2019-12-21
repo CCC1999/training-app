@@ -1,3 +1,5 @@
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,6 @@ import service.IUserService;
 @ContextConfiguration(classes=TestConfig.class)
 public class TestUserMapper {
 	
-	//-- 1.依靠Spring获取UserMapper的实现类
 	@Autowired
 	UserMapper userMapper;
 	@Autowired
@@ -21,8 +22,7 @@ public class TestUserMapper {
 	
 	@Test
 	public void findUser() {
-		//-- 查询系统中是否有该用户
-		User u = userMapper.findByNameAndPassword("zhangsan","123");
+		User u = userMapper.findByNameAndPassword("韩鹏","123456");
 		System.out.println(u);
 	}
 	
@@ -37,13 +37,15 @@ public class TestUserMapper {
 	}
 	@Test
 	public void registerUser() {
-		User u = new User("关系","123",1,1);
+		User u = new User("������","123",1,1);
 		ius.registerUser(u);
 	}
 	@Test
 	public void query() {
-		
-		System.out.println(userMapper.findUserAndRole());
+		List<User> users= ius.findAll();
+		for(User user : users) {
+			System.out.println(user);
+		}
 		
 	}
 }
