@@ -34,10 +34,6 @@ public class UserController {
 	}
 	@PostMapping("/login")
 	public String queryAll( @ModelAttribute User user , Model m ,HttpSession hs){
-		if(user==null) { 
-			return "redirect:/login";
-		}
-
 		if(ius.verifyUser(user.getUsername(), user.getPassword())) {
 			m.addAttribute("users", ius.findAll());
 			hs.setAttribute("user", user);
