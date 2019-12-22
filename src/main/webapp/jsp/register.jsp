@@ -16,6 +16,8 @@
 </head>
 <body>
 	<div align="center">
+	<h3>注册页面</h3>
+	<hr color="red">
 	<form:form  modelAttribute="u" action="handle" method="post">
 		<table>
 			<tr>

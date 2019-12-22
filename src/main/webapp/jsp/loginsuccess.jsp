@@ -15,21 +15,26 @@
 		<c:if test="${sessionScope.user!=null}">
 			<h3>欢迎【${sessionScope.user.username}】登录</h3>
 		</c:if>
-		<table width="80%" border=1>
+		<hr color="red">
+		<table  border=1>
 			<tr>
-				<td>用户ID</td>
-				<td>用户名称</td>
-				<td>用户密码</td>
-				<td>角色ID</td>
-				<td>用户状态</td>
+				<th>用户ID</th>
+				<th>用户名称</th>
+				<th>用户密码</th>
+				<th>角色名称</td>
+				<th>用户状态</th>
+				<th>操作</th>
 			</tr>
 	<c:forEach items="${users }" var="user">
 			<tr>
 				<td>${user.id }</td>
 				<td>${user.username }</td>
 				<td>${user.password }</td>
-				<td>${user.roleId }</td>
+				<td>${user.role.name }</td>
 				<td>${user.status }</td>
+				<td><a href="">查看</a>
+					<a href="">编辑</a>
+					<a href="">删除</a></td>
 			</tr>
 	</c:forEach>
 		</table>

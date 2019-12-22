@@ -21,6 +21,6 @@ public interface UserMapper {
 	void deleteUser(int id);
 	int save(User user);
 	
-	User findUserAndRole();
+	List<User> findUserAndRole();
 	
 }

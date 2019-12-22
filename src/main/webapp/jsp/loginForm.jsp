@@ -11,6 +11,7 @@
 <body>
 	<div align="center">
 	<h3>登陆页面</h3>
+	<hr color="red">
 	<form:form  modelAttribute="user" method="post" action="login">
 		<table>
 			<tr>
