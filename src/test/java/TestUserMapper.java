@@ -22,7 +22,7 @@ public class TestUserMapper {
 	
 	@Test
 	public void findUser() {
-		User u = userMapper.findByNameAndPassword("韩鹏","123456");
+		User u = userMapper.findByNameAndPassword("张利勇","123456");
 		System.out.println(u);
 	}
 	
@@ -37,7 +37,7 @@ public class TestUserMapper {
 	}
 	@Test
 	public void registerUser() {
-		User u = new User("������","123",1,1);
+		User u = new User("数据库","123",1,1);
 		ius.registerUser(u);
 	}
 	@Test

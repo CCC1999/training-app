@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.uek.project</groupId>
@@ -14,7 +15,7 @@
 		<!-- Spring5 -->
 		<spring.version>5.1.7.RELEASE</spring.version>
 	</properties>
-	
+
 	<!-- 平台依赖仓库配置 -->
 	<repositories>
 		<repository>
@@ -29,10 +30,10 @@
 			</releases>
 		</repository>
 	</repositories>
-	
+
 	<!-- Web项目所依赖的jar，类库 -->
 	<dependencies>
-		<!-- 1.引入spring框架开始-->
+		<!-- 1.引入spring框架开始 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -60,7 +61,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- Spring5 AOP  -->
+		<!-- Spring5 AOP -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
@@ -96,17 +97,17 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-api</artifactId>
-		    <version>1.7.26</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.26</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-log4j12</artifactId>
-		    <version>1.7.26</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.26</version>
 		</dependency>
-		
-		<!-- Spring5 与 Jdbc整合  -->
+
+		<!-- Spring5 与 Jdbc整合 -->
 		<!-- 整合JDBC需要用到的jar，当然再整合MyBatis框架也需要用到此处用到的jar -->
 		<!-- MySQL数据库驱动 -->
 		<dependency>
@@ -125,7 +126,7 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- 2.引入SpringMVC框架开始 -->
 		<!-- Spring5 与 SpringMVC集成 -->
 		<dependency>
@@ -133,50 +134,50 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<!-- 2.引入SpringMVC框架结束-->
-		
+		<!-- 2.引入SpringMVC框架结束 -->
+
 		<!-- 4.Spring5与 MyBatis集成 -->
 		<dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>2.0.1</version>
-        </dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.1</version>
+		</dependency>
 		<!-- MyBatis PageHelper分页插件 -->
 		<dependency>
-		    <groupId>com.github.pagehelper</groupId>
-		    <artifactId>pagehelper</artifactId>
-		    <version>5.1.10</version>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>5.1.10</version>
 		</dependency>
-		
+
 		<!-- 5.处理JSON工具类，方便处理JSON字符串 -->
 		<dependency>
-		    <groupId>com.alibaba</groupId>
-		    <artifactId>fastjson</artifactId>
-		    <version>1.2.58</version>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.58</version>
 		</dependency>
-			<dependency>
+		<dependency>
 
-            <groupId>org.hibernate</groupId>
+			<groupId>org.hibernate</groupId>
 
-            <artifactId>hibernate-validator</artifactId>
+			<artifactId>hibernate-validator</artifactId>
 
-            <version>5.4.1.Final</version>
-			
-        </dependency>
-        <dependency>  
-            <groupId>javax.validation</groupId>  
-            <artifactId>validation-api</artifactId>  
-            <version>1.1.0.Final</version>  
-        </dependency> 
+			<version>5.4.1.Final</version>
+
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
 
 		<!-- SpringBootText注解依赖 -->
 
-		<!-- 1.引入spring框架结束-->
+		<!-- 1.引入spring框架结束 -->
 	</dependencies>
 
 	<!-- 3.配置项目中所用的插件 -->
@@ -200,13 +201,14 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<!-- 配置服务器启动所占的端口号 大于3000-->
+					<!-- 配置服务器启动所占的端口号 大于3000 -->
 					<port>8080</port>
 					<!-- 应用的名称 -->
 					<path>/training-app</path>
 					<uriEncoding>UTF-8</uriEncoding>
 					<!-- 实现热部署，不需要每次修改代码后都重新启动Tomcat -->
 					<contextReloadable>true</contextReloadable>
+					
 				</configuration>
 			</plugin>
 		</plugins>
