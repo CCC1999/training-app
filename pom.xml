@@ -13,7 +13,7 @@
 		<!-- 若有web.xml则可以改为true，否则改为false -->
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<!-- Spring5 -->
-		<spring.version>5.1.7.RELEASE</spring.version>
+		<spring.version>5.2.3.RELEASE</spring.version>
 	</properties>
 
 	<!-- 平台依赖仓库配置 -->
